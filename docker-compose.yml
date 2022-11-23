@@ -4,21 +4,40 @@ services:
   api:
     container_name: "api"
     volumes:
-      - .:/app
+      - ./api:/app
     build:
       context: ./api
       dockerfile: Dockerfile
     ports:
       - 8080:8080
     tty: true
+    env_file:
+      - .env
 
   client:
     container_name: "client"
     volumes:
-      - .:/usr/src/app
+      - ./client:/usr/src/app
     build:
       context: ./client
       dockerfile: Dockerfile
     ports:
       - 3000:3000
     tty: true
+    env_file:
+      - .env
+
+  db:
+    container_name: "db"
+    volumes:
+      - postgres:/var/lib/postgresql
+    build:
+      context: ./db
+      dockerfile: Dockerfile
+    ports:
+      - 5432:5432
+    env_file:
+      - .env
+
+volumes:
+   postgres:
