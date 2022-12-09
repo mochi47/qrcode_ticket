@@ -2,3 +2,5 @@ uvicorn ~= 0.20.0
 fastapi ~= 0.87.0
 pyqrcode ~= 1.2.1
 pypng ~= 0.20220715.0
+gspread ~= 5.7.0
+oauth2client ~= 4.1
