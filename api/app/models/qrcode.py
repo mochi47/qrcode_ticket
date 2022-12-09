@@ -1,4 +1,5 @@
 import pyqrcode
+from io import BytesIO
 
 URL_CLIENT = "https://localhost:3000/"
 
@@ -6,13 +7,15 @@ URL_CLIENT = "https://localhost:3000/"
 class Qrcode:
     def create(employee_code) -> str:
         qrcode = pyqrcode.create(
-            URL_CLIENT + employee_code, error="Q", version=14
+            URL_CLIENT + str(employee_code), error="Q", version=14
         )  # 400文字のAlphanumetricまでいける
         return qrcode
 
     def convert_png(qrcode, file=None):
         if file is None:
-            return qrcode.png(scale=4)
+            buffer = BytesIO()
+            qrcode.png(buffer)
+            return buffer.getvalue()
         else:
             return qrcode.png(file, scale=4)
 
