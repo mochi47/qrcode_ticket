@@ -1,7 +1,7 @@
 import pyqrcode
 from io import BytesIO
 
-URL_CLIENT = "https://localhost:3000/"
+URL_CLIENT = "http://127.0.0.1:8000/employees/"
 
 
 class Qrcode:

@@ -17,11 +17,11 @@ class Spreadsheet:
         ).sheet1
 
     def is_present(self, employee_code: int):
-        attendance = self.sheet.cell(employee_code + 1, 3).value
+        attendance = self.sheet.cell(int(employee_code) + 1, 3).value
         return attendance == "出席済み"
 
     def attend(self, employee_code: int):
-        self.sheet.update_cell(employee_code + 1, 3, "出席済み")
+        self.sheet.update_cell(int(employee_code) + 1, 3, "出席済み")
 
     def test(self):
         return self.sheet.get_all_records()
