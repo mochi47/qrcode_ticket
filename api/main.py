@@ -12,7 +12,7 @@ async def root():
     return {"message": "Hello World"}
 
 
-@app.post("/employees/{employee_code}")
+@app.get("/attend_employees/{employee_code}")
 # post/emplyee_code -> 200 出席 or 400 error 出席済みの参加者です
 def check_attendance(employee_code):
     sp = Spreadsheet()
