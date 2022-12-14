@@ -1,5 +1,3 @@
-from fastapi import FastAPI
-from typing import Union
 from fastapi import FastAPI, Query, Response
 from app.models.qrcode import Qrcode
 from app.models.spreadsheet import Spreadsheet
